@@ -17,4 +17,15 @@ describe('Gate', () => {
     it('defaults to `open`', () => {
         expect(wrapper.queryByText(/open/i)).toBeInTheDocument();
     });
+    it('cannot be closed or opened if it is locked', () => {
+        expect(wrapper.queryByText(/unlocked/i)).toBeInTheDocument();
+        expect(wrapper.queryByText(/open/i)).toBeInTheDocument();
+        rtl.fireEvent.click(wrapper.queryByText(/close gate/i));
+        expect(wrapper.queryByText(/closed/i)).toBeInTheDocument();
+        rtl.fireEvent.click(wrapper.queryByText(/lock gate/i));
+        expect(wrapper.queryByText(/locked/i)).toBeInTheDocument();
+        rtl.fireEvent.click(wrapper.queryByText(/open gate/i));
+        expect(wrapper.queryByText(/closed/i)).toBeInTheDocument();
+        expect(wrapper.queryByText(/locked/i)).toBeInTheDocument();
+    });
 });
