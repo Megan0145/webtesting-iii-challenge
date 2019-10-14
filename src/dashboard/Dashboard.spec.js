@@ -29,3 +29,14 @@ describe('Gate', () => {
         expect(wrapper.queryByText(/locked/i)).toBeInTheDocument();
     });
 });
+
+describe('Dashboard component', () => {
+    it('Shows controls', () => {
+        expect(wrapper.queryByText(/close gate/i)).toBeInTheDocument();
+        expect(wrapper.queryByText(/lock gate/i)).toBeInTheDocument();
+    });
+    it('Shows display', () => {
+        expect(wrapper.queryByText(/unlocked/i)).toBeInTheDocument();
+        expect(wrapper.queryByText(/open/i)).toBeInTheDocument();
+    });
+});

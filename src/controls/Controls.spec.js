@@ -9,3 +9,9 @@ let wrapper;
 beforeEach(() => {
     wrapper = rtl.render(<Controls />);
 });
+
+describe('Controls component', () => {
+    it('', () => {
+
+    });
+});
