@@ -6,12 +6,6 @@ import Display from "./Display";
 
 afterEach(rtl.cleanup);
 
-// - displays if gate is open/closed and if it is locked/unlocked
-// - displays 'Closed' if the `closed` prop is `true` and 'Open' if otherwise
-// - displays 'Locked' if the `locked` prop is `true` and 'Unlocked' if otherwise
-// - when `locked` or `closed` use the `red-led` class
-// - when `unlocked` or `open` use the `green-led` class
-
 describe("Display component", () => {
   it("Displays if gate is open", () => {
     const wrapper = rtl.render(<Display />);
@@ -40,7 +34,6 @@ describe("Display component", () => {
   });
   it("Uses the red-led class when locked", () => {
     const wrapper = rtl.render(<Display locked={true} />);
-    wrapper.debug();
     expect(wrapper.queryByText(/locked/i)).toBeInTheDocument();
     expect(wrapper.queryByText(/locked/i)).toHaveClass("red-led");
     expect(wrapper.queryByText(/locked/i)).not.toHaveClass("green-led");
